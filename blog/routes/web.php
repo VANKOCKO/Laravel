@@ -11,6 +11,28 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
+})->name('welcome');
+
+
+    /**
+     *   Mise en place des routes 
+     */
+
+Route::get('/ID/{id}', function($id) {
+    echo 'ID :'.$id;
+});
+
+
+Route::get('/ID/{id}', function($id) {
+    echo 'ID :'.$id;
+});
+
+
+Route::get('/user/{name}',function($name){
+    
+    echo 'name :' .$name;
 });
