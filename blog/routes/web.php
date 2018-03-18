@@ -32,7 +32,8 @@ Route::get('/ID/{id}', function($id) {
 });
 
 
-Route::get('/user/{name}',function($name){
-    
-    echo 'name :' .$name;
-});
+Route::get('role',
+[
+      'middleware' => 'Role:editor',
+      'uses' => 'testController@index',
+]);
