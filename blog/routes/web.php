@@ -17,15 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-
     /**
      *   Mise en place des routes 
      */
-
-Route::get('/ID/{id}', function($id) {
-    echo 'ID :'.$id;
-});
-
 
 Route::get('/ID/{id}', function($id) {
     echo 'ID :'.$id;
@@ -37,3 +31,23 @@ Route::get('role',
       'middleware' => 'Role:editor',
       'uses' => 'testController@index',
 ]);
+
+Route::get('ternminate',
+[
+    'middleware' => 'terminate',
+    'uses' => 'ABCController@index',
+]);
+
+
+Route::get('profile',
+[
+    'middleware' =>'auth',
+    'uses' => 'UserController@showProfile',
+]);
+
+Route::get('/usercontroller/path',
+[
+    'middleware' => 'First',
+    'uses' => 'UserController@showPath',
+]);
+
