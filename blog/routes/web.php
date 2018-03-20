@@ -109,8 +109,11 @@ Route::post('contact/form','ContactController@postForm');
 
 /**
  * 
- *  Les sessions
+ *  Les Entitees 
  */
 
- 
+ Route::get('/email/form','EmailController@getForm');
+
+Route::post('/email/form','EmailController@postForm');
+
 
