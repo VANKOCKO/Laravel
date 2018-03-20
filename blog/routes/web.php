@@ -103,8 +103,14 @@ Route::get('users', 'UsersController@getInfos');
 Route::post('users', 'UsersController@postInfos');
 
 
-Route::get('contact/form','ContactController@getInfos');
-Route::post('contact/form','ContactController@postInfos');
+Route::get('contact/form','ContactController@getForm');
+Route::post('contact/form','ContactController@postForm');
 
 
+/**
+ * 
+ *  Les sessions
+ */
+
+ 
 

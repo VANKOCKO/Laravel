@@ -81,7 +81,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+           
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -91,5 +91,13 @@
                 </div>
             </div>
         </div>
+        <div id="app">
+        </div>
+         <script>
+           window.Laravel = <?php echo json_encode([
+               'csrfToken' => csrf_token(),
+                    ]); ?>
+          </script>
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
