@@ -15,9 +15,11 @@
  *   Route avec get, post,delete  
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 
+       [
+           'uses'=>'WelcomeController@index',
+           'as' =>'home'
+        ]);
 
 Route::get('/my',
 [
@@ -74,3 +76,35 @@ Route::get('/home',['as' =>'home', function(){
              
        return 'je suis a la page d\'accueil'; 
 }]);
+
+
+
+/**
+ * 
+ *   retourner une vue 
+ */
+
+
+ Route::get('/vue1',function(){
+
+      return view('vue1');
+ });
+
+
+ Route::get('/articles/{n}','ArticleController@show')->where('n','[0-9]+');
+
+
+ /**
+  *   Les formulaires 
+  */
+
+
+Route::get('users', 'UsersController@getInfos');
+Route::post('users', 'UsersController@postInfos');
+
+
+Route::get('contact/form','ContactController@getInfos');
+Route::post('contact/form','ContactController@postInfos');
+
+
+
