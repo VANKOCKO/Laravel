@@ -11,6 +11,10 @@
 |
 */
 
+/**
+ *   Route avec get, post,delete  
+ */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -62,3 +66,11 @@ Route::delete('/my/{my}',
 
 
 
+/**
+ *   Route nomee 
+ */
+
+Route::get('/home',['as' =>'home', function(){
+             
+       return 'je suis a la page d\'accueil'; 
+}]);
