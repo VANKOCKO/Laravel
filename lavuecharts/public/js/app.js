@@ -111,7 +111,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_
 
 
 
-
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
     routes: [{
@@ -16907,6 +16906,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -17083,10 +17083,8 @@ module.exports = Component.exports
 
 /***/ }),
 /* 59 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -17123,25 +17121,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+module.exports = {
     data: function data() {
+
         return {
+
             items: []
         };
     },
-
-
-    created: function created() {
-        this.fetchItems();
-    },
-
     methods: {
         fetchItems: function fetchItems() {
             var _this = this;
 
-            var uri = 'http://localhost:8000/items';
+            var uri = 'http://localhost:8000/test';
             this.axios.get(uri).then(function (response) {
-                console.log(_this.items);
                 _this.items = response.data;
             });
         },
@@ -17151,7 +17144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.axios.delete(uri);
         }
     }
-});
+};
 
 /***/ }),
 /* 60 */
@@ -17191,7 +17184,7 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.items, function(item) {
-          return _c("tr", [
+          return _c("tr", { key: item.id }, [
             _c("td", [_vm._v(_vm._s(item.id))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(item.name))]),

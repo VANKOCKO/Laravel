@@ -3,14 +3,12 @@ import VueRouter from 'vue-router'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 
-
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 
 import App from './components/App'
 import AddComponent from './components/AddComponent'
 import chartComponent from './components/ChartComponent'
-
 import CreateItem from './components/CreateItem.vue';
 import DisplayItem from './components/DisplayItem.vue';
 import EditItem from './components/EditItem.vue';

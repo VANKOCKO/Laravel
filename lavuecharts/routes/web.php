@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/test', 'ItemController@index');
+
 Route::get('/{any}', 'CoinController@index')->where('any', '.*');
 
 Route::post('/coins', 'CoinController@store');
