@@ -3,11 +3,8 @@
         <h1></h1>
 
         <p>
-            <router-link :to="{ name: 'coin' }">coin</router-link> 
              <router-link :to="{ name: 'chart' }">chart</router-link> 
-             <router-link :to="{ name: 'DisplayItem' }">Item</router-link> 
         </p>
-
         <div class="container">
             <router-view></router-view>
         </div>

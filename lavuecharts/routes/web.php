@@ -15,3 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/{any}', 'CoinController@index')->where('any', '.*');
+
+Route::post('/coins', 'CoinController@store');
+
+Route::get('/coins', 'CoinController@index1');
+
+Route::resource('items', 'ItemController');
+
+
+
+

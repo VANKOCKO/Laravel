@@ -46,8 +46,13 @@
          }
       },
       methods: {
-         addCoin() {
-            alert('submitted');
+         addCoin() 
+         {
+            let uri = 'http://localhost:8000/coins';
+            this.axios.post(uri, this.coin)
+                .then((response) => {
+               window.location.reload();
+            });
          }
       }
    }
