@@ -17,7 +17,9 @@ class ItemController extends Controller
         $items = Item::all();
         return response()->json($items);
     }
-
+     
+   
+    
     /**
      * Show the form for creating a new resource.
      *

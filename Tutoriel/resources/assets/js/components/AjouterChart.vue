@@ -14,37 +14,50 @@
                          <div class="col-md-6">
                               <div class="form-group">
                                    <label for="label">valeur</label>  
-                                   <input type="text" class="form-control" v-model="chart.valeur">  
+                                   <input type="text" class="form-control" v-model="chart.value">  
                               </div>
                          </div>
                    </div><br/>
                     <div class="form-group">
-                       <button class="btn btn-primary">Add Item</button>
+                       <button class="btn btn-primary">Ajouter chart</button>
                     </div>
+                   
+                    <li v-bind:key="data.id" v-for="data in datas">
+                                 {{data.label}}
+                                 {{data.value}}
+                    </li> 
               </form>
-          </div>    
+
+          </div>
+            
 </template>
 
 <script> 
-
-   module.exports = {
+   export default {
 
        data:function () {
            
            return {
                
-                chart : {}
+               chart: 
+               {},
+               datas:[],
 
            }
        },
        methods: {
-
            ajouterChart(){   
-             let uri = 'http://localhost:8000/chart/ajouter';
-             this.axios.post(uri,this.chart).then((response) =>{
-                this.$router.push({name : 'chart'})
+             let uri = 'http://localhost:8000/graph';
+             this.axios.post(uri,this.chart).then((response) => {
+                this.$router.push({name : 'ajouterChart'})
              });
            },
+           afficherChart(){
+                let uri ='http://localhost:8000/graph';
+                this.axios.get(uri).then((response)=> {
+                       this.chart = response.data;
+                });
+           }
        }
    }
 </script>

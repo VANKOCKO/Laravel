@@ -17132,10 +17132,9 @@ module.exports = {
         fetchItems: function fetchItems() {
             var _this = this;
 
-            var uri = 'http://localhost:8000/test';
+            var uri = 'http://localhost:8000/items';
             this.axios.get(uri).then(function (response) {
                 _this.items = response.data;
-                console.log(response.data);
             });
         },
         deleteItem: function deleteItem(id) {
@@ -17544,8 +17543,17 @@ module.exports = Component.exports
 
 /***/ }),
 /* 65 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17574,14 +17582,14 @@ module.exports = Component.exports
 //
 //
 
-
-module.exports = {
+/* harmony default export */ __webpack_exports__["default"] = ({
 
     data: function data() {
 
         return {
 
-            chart: {}
+            chart: {},
+            datas: []
 
         };
     },
@@ -17589,13 +17597,21 @@ module.exports = {
         ajouterChart: function ajouterChart() {
             var _this = this;
 
-            var uri = 'http://localhost:8000/chart/ajouter';
+            var uri = 'http://localhost:8000/graph';
             this.axios.post(uri, this.chart).then(function (response) {
-                _this.$router.push({ name: 'chart' });
+                _this.$router.push({ name: 'ajouterChart' });
+            });
+        },
+        afficherChart: function afficherChart() {
+            var _this2 = this;
+
+            var uri = 'http://localhost:8000/graph';
+            this.axios.get(uri).then(function (response) {
+                _this2.chart = response.data;
             });
         }
     }
-};
+});
 
 /***/ }),
 /* 66 */
@@ -17659,19 +17675,19 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.chart.valeur,
-                    expression: "chart.valeur"
+                    value: _vm.chart.value,
+                    expression: "chart.value"
                   }
                 ],
                 staticClass: "form-control",
                 attrs: { type: "text" },
-                domProps: { value: _vm.chart.valeur },
+                domProps: { value: _vm.chart.value },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.chart, "valeur", $event.target.value)
+                    _vm.$set(_vm.chart, "value", $event.target.value)
                   }
                 }
               })
@@ -17680,8 +17696,21 @@ var render = function() {
         ]),
         _c("br"),
         _vm._v(" "),
-        _vm._m(0)
-      ]
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.datas, function(data) {
+          return _c("li", { key: data.id }, [
+            _vm._v(
+              "\n                       " +
+                _vm._s(data.label) +
+                "\n                       " +
+                _vm._s(data.value) +
+                "\n          "
+            )
+          ])
+        })
+      ],
+      2
     )
   ])
 }
@@ -17691,7 +17720,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Add Item")])
+      _c("button", { staticClass: "btn btn-primary" }, [
+        _vm._v("Ajouter chart")
+      ])
     ])
   }
 ]

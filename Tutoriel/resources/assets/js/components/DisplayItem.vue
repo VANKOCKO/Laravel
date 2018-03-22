@@ -46,10 +46,9 @@
             {
             fetchItems()
             {
-              let uri = 'http://localhost:8000/test';
+              let uri = 'http://localhost:8000/items';
               this.axios.get(uri).then((response) => {
                   this.items = response.data;
-                  console.log(response.data);
               });
             },
             deleteItem(id)

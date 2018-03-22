@@ -42,8 +42,7 @@ const router = new VueRouter({
               name: 'EditItem',
               path: '/edit/:id',
               component: EditItem
-           }
-           ,
+           },
           {
               name: 'ajouterChart',
               path: '/chart/ajouter',

@@ -11,6 +11,9 @@
 |
 */
 
+/**
+ *   Route pour le CRUD
+ */
 Route::get('/test', 'ItemController@index');
 
 Route::get('/{any}', 'CoinController@index')->where('any', '.*');
@@ -21,5 +24,14 @@ Route::get('/coins', 'CoinController@index1');
 
 Route::resource('items', 'ItemController');
 
-Route::post('/chart/ajouter', 'ChartController@store');
+
+/**
+ *   Route les graph 
+ */
+
+Route::get('/getForm',['uses' =>'ChartController@getForm', 'as' =>'getForm']);
+
+Route::post('/getForm',['uses' =>'ChartController@postForm', 'as' =>'postForm']);
+
+Route::resource('graph', 'ChartController');
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChartPie extends Migration
+class CreateCharpiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateChartPie extends Migration
      */
     public function up()
     {
-        Schema :: create('ChartPie',function(Blueprint $table)
-        {
-
+        Schema::create('charpies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
             $table->integer('value');
             $table->timestamps();
-
         });
-        
     }
 
     /**
@@ -32,6 +28,6 @@ class CreateChartPie extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('charpies');
     }
 }
