@@ -9,9 +9,10 @@ Vue.use(VueAxios, axios)
 import App from './components/App'
 import AddComponent from './components/AddComponent'
 import chartComponent from './components/ChartComponent'
-import CreateItem from './components/CreateItem.vue';
-import DisplayItem from './components/DisplayItem.vue';
-import EditItem from './components/EditItem.vue';
+import CreateItem from './components/CreateItem';
+import DisplayItem from './components/DisplayItem';
+import EditItem from './components/EditItem';
+import AjouterChart from './components/AjouterChart';
 
 const router = new VueRouter({
     mode: 'history',
@@ -41,6 +42,12 @@ const router = new VueRouter({
               name: 'EditItem',
               path: '/edit/:id',
               component: EditItem
+           }
+           ,
+          {
+              name: 'ajouterChart',
+              path: '/chart/ajouter',
+              component: AjouterChart
            }
     ],
 });

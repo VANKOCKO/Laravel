@@ -21,6 +21,5 @@ Route::get('/coins', 'CoinController@index1');
 
 Route::resource('items', 'ItemController');
 
-
-
+Route::post('/chart/ajouter', 'ChartController@store');
 

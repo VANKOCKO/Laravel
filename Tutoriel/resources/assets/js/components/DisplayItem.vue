@@ -49,6 +49,7 @@
               let uri = 'http://localhost:8000/test';
               this.axios.get(uri).then((response) => {
                   this.items = response.data;
+                  console.log(response.data);
               });
             },
             deleteItem(id)
